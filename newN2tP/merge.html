@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Style Picker</title>
+	<link href="css/font.css" rel="stylesheet" type="text/css">
+  <link href="css/controls.css" rel="stylesheet" type="text/css">
+  <style>
+    .grid-container {
+    display: grid;
+    grid-row-gap: 0.25vw;
+    grid-template-rows: max-content max-content;
+    grid-template-columns: 1fr;
+    background-color:#369;
+    padding: 0.25vw;
+    }
+    .grid-item {
+     background-color: #e1dDd7;
+    }
+    .sub-grid {
+      display: grid;
+      grid-column-gap: 5%;
+      grid-template-columns: 4fr 6fr;
+    }
+    h1 {
+      font-size: 1em;
+      margin: 0 0 .35em 0;
+      padding: 0;
+      clear: both;
+    }
+    p {
+      font-size: 1em;
+      width: auto;
+      clear: both;
+      padding: 0;
+      margin: 0;
+    }
+    body {
+      font-size: 16px;
+      background-color: #e1dDd7;
+      padding: 0;
+    }
+    footer {display: block;}
+    #fontMenu, #control {padding: 1vw;}
+    #fontMenu, #colorPicker, #sizesAll {
+      display: none;
+    }
+    #appmenu, #appmenu * {z-index: 50;}
+  </style>
+</head>
+<body>
+<div class="grid-container" >
+  <div class="grid-item">
+  <article id="control">
+    <div id="ctlMain" class="sub-grid">
+        <div title="Introduction">
+          <H1>Nose<wbr>2the<wbr>Page</H1>
+            <p class="ctlP">This program helps you pick text settings to help you read. </p>
+          </div>
+        <div>
+        <div title="Controls">
+          <p class="ctlP"><button id="ctlBegin">Begin</button></p>
+          <p class="ctlP"><button id="ctlReview">Review text settings</button></p>
+          <form action="Tom.php">
+            <p class="ctlP"><label for="ctlFile">Filename: No spaces.</label></p>
+            <p class="ctlP"><input type="url" id="ctlFile" name="file"/></p>
+            <p class="ctlP"><button type="submit" id="ctlSave"> Save text settings</button></p>
+            <input id="ctlCode" type="hidden" name="code">
+          </form>
+          </div>
+        </div>
+      </div>
+    <div id="ctlSample"  style="display:none">
+      <h1>Sample Text</h1>
+      <p>As you change text settings this area  shows the effects. You should be able to distinguish the letters (Il1 S5 O0). Long words like psychosomatic should be easy to perceive. If you feel stress reading, adjust your settings.</p>
+      <p>Change: <button id="ctlFontBtn">Font</button> <button id="ctlSizeBtn">Size and Spacing</button> <button id="ctlColorBtn">Color</button> <button id="ctlDoneBtn">Done</button> </p>
+     </div>
+  </article>
+  </div>
+  <div class="grid-item">
+    <article id="fontMenu" tabindex="0">
+    <ul role="menubar" aria-label="functions" id="appmenu">
+      <li role="menuitem" id="apmenuFirst" aria-haspopup="true" style="font-family: Arial, Helvetica,sans-serif;">
+        Sans Serif
+        <ul role="menu" >
+          <li role="menuitem" class="fontDisplay" style="font-size: 16px; font-family: Arial, Helvetica, sans-serif;">Arial
+          </li>
+          <li role="menuitem" class="fontDisplay" style="font-size: 16px; font-family: 'Comic Sans MS', cursive, sans-serif;">Comic Sans
+          </li>
+          <li role="menuitem" class="fontDisplay" style="font-size: 16px; font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif;">Lucida Sans
+          </li>
+          <li role="menuitem" class="fontDisplay" style="font-size: 16px; font-family:Tahoma, sans-serif;">Tahoma
+          </li>
+          <li role="menuitem" class="fontDisplay" style="font-size: 16px; font-family:'Trebuchet MS', 'Lucida Grande', sans-serif;">Trebuchet
+          </li>
+          <li role="menuitem" class="fontDisplay" style="font-size: 16px; font-family:'Verdana', sans-serif;">Verdana
+          </li>
+        </ul>
+      </li>
+      <li role="menuitem" aria-haspopup="true" style="font-family: serif;">
+        Serif
+        <ul role="Menu">
+          <li role="menuitem" class="fontDisplay" style="font-size: 16px; font-family:Georgia, serif;">Georgia
+          </li>
+          <li role="menuitem" class="fontDisplay" style="font-size: 16px; font-family:'Palatino Linotype', 'Book Antiqua', Palatino, serif;">Palatino</li>
+          <li role="menuitem" class="fontDisplay" style="font-size: 16px; font-family:Times, 'Times New Roman',serif;">Times </li>
+        </ul>
+      </li>
+      <li role="menuitem" aria-haspopup="true" style="font-family: monospace; font-size: 16px;">
+        Monospace
+        <ul role="menu">
+          <li role="menuitem" class="fontDisplay" style="font-size: 16px; font-family: Courier, monospace;">Courier
+          </li>
+          <li role="menuitem" class="fontDisplay" style="font-size: 16px; font-family: 'Courier New', monospace;">Courier New
+          </li>
+          <li role="menuitem" class="fontDisplay" style="font-size: 16px; font-family: 'Lucida Console', Monaco, monospace;">Lucida Console
+          </li>
+        </ul>
+      </li>
+    </ul>
+    
+    <h1 class="text" style="font-family: Arial, Helvetica, sans-serif;">Pick a font from the menu. </h1>
+    <p class="text" style="font-family: Arial, Helvetica, sans-serif;">Try many to find one you like. Note: Each letter should be easy to identify &mdash; Il1 5S 0O.</p>
+      <footer>
+        <p id="fontTTP">&nbsp&nbsp;<label for="fontTTBtn" id="fontTTLbl">Tooltips: <span id="fontTTStatus" style="color:green;">ON&nbsp;&nbsp;</span></label>
+          <button id="fontTTBtn" class="tooltip" value="off">
+            Turn <span id="fontTTAction">OFF</span>
+            <span class="tooltiptext">Controls tooltips</span></button>&nbsp;
+          <span class="lightTan">&mdash;</span>&nbsp;
+      
+          <button id="fontHelpBtn" class="tooltip" style="color: red;">?
+            <span class="tooltiptext" style="width: 60px; margin-left: -30px;">Help</span></button>
+          <button id="fontResetBtn" type="button" class="tooltip">Reset
+            <span class="tooltiptext">Go back to starting colors</span></button>
+          <button id="fontDoneBtn" type="button" class="tooltip">Done
+            <span id="fontDoneTipBtn" class="tooltiptext">Accept font changes and return to main menu</span></button>
+        </p>
+      </footer>
+
+    </article>
+  </div>
+  <div class="grid-item">
+    <article id="colorPicker" tabindex="0">
+      <form id="colorForm">
+        <fieldset class="main">
+          
+          <!-- *********** BACKGROUND  *****************-->
+          
+          <fieldset class="inlnBlk long" id="bgControls"><legend>Background &ndash;
+            <button type="button" id="chgToTxt">Show Text Controls</button></legend>
+            
+            <span class="tr">
+    <label class="tdSmall" id="lblBgL" for="valBgL">Light</label>
+    <span class="tdSmall sliderSpan" id="valBgLSpan" style="display: inline-block;">
+    <input type="range"
+           id="valBgL"
+           name="valBgL"
+           min="0"
+           max="100"
+           value="100"
+           step="1">
+      </span>&nbsp;
+    <input class="shorter" type="number" id="nmbrBgL" title="Light" min="0" max="100" value="100" >%
+    </span>
+            
+            <span class="tr">
+                <label class="tdSmall" id="lblBgS" for="valBgS" title="Saturation">%color&nbsp;</label>
+    <span class="tdSmall sliderSpan tooltip" id="valBgSSpan" style="display: inline-block;">
+    <input type="range"
+           id="valBgS"
+           name="valBgS"
+           min="0"
+           max="100"
+           value="0"
+           step="1">
+        <span id="ttBgS" class="tooltiptext noshow">Meaningless with Light = 0 or 100</span>
+      </span>&nbsp;
+    <input class="shorter" type="number" id="nmbrBgS" title="Percent Color" min="0" max="100" value="0">%
+    </span>
+            
+            <span class="tr">
+    <label class="tdSmall" id="lblBgH" for="valBgH" title="Hue">Color</label>
+    <span class="tdSmall sliderSpan tooltip" id="valBgHSpan" style="display: inline-block;">
+    <input type="range"
+           id="valBgH"
+           class="tooltip"
+           name="valBgH"
+           min="0"
+           max="360"
+           value="0"
+           step="1">
+        <span id="ttBgH" class="tooltiptext noshow">Meaningless with %color = 0</span>
+      </span>&nbsp;
+    <input class="shorter" type="number" id="nmbrBgH" title="Color" min="0" max="360" value="0" >&deg;
+    </span>
+            
+            <span class="tr">
+            <label class="tdSmall" id="lblBgHex" for="valBgHex">Hex # </label>
+               <span class="td"><input type="text" class="short" id="valBgHex" value="FFFFFF" tabindex="0">
+               <button type="button" id="setBgHex"  class="tooltip">&larr;Set
+                  <span class="tooltiptext">Set color to value entered in Hex box (3 or 6 characters)</span></button>
+               <button id="BgFgSwap" type="button"  class="tooltip">Bkg&harr;Txt
+                   <span class="tooltiptext">Swap background and text colors</span></button>
+                 <!--<button type="button" onclick="resetForm();" class="tooltip lvno">Blk & Wht
+                     <span class="tooltiptext">Black text on white background </span></button>-->
+                   </span></span>
+          
+          </fieldset>
+          
+          
+          <!-- *************** TEXT  ********* -->
+          
+          <fieldset class="inlnBlk long" id="txtControls"><legend>Text &ndash;
+            <button type="button" id="chgToBg">Show Background Controls</button></legend>
+            
+            <span class="tr">
+    <label class="tdSmall" id="lblFgL" for="valFgL">Light</label>
+    <span class="tdSmall sliderSpan" id="valFgLSpan" style="display: inline-block;">
+    <input type="range"
+           id="valFgL"
+           name="valFgL"
+           min="0"
+           max="100"
+           value="0"
+           step="1">
+      </span>&nbsp;
+    <input class="shorter" type="number" id="nmbrFgL" title="Light" min="0" max="100" value="0" >%
+    </span>
+            
+            <span class="tr">
+    <label class="tdSmall" id="lblFgS" for="valFgS" title="Saturation">%color&nbsp;</label>
+    <span class="tdSmall sliderSpan tooltip" id="valFgSSpan" style="display: inline-block;">
+    <input type="range"
+           id="valFgS"
+           name="valFgS"
+           min="0"
+           max="100"
+           value="0"
+           step="1">
+        <span id="ttFgS" class="tooltiptext noshow">Meaningless with Light = 0 or 100</span>
+      </span>&nbsp;
+    <input class="shorter" type="number" id="nmbrFgS" title="Percent Color" min="0" max="100" value="0">%
+    </span>
+            
+            
+            <span class="tr">
+    <label class="tdSmall" id="lblFgH" for="valFgH" title="Hue">Color</label>
+    <span class="tdSmall sliderSpan tooltip" id="valFgHSpan" style="display: inline-block;">
+    <input type="range"
+           id="valFgH"
+           name="valFgH"
+           min="0"
+           max="360"
+           value="0"
+           step="1">
+        <span id="ttFgH" class="tooltiptext noshow">Meaningless with %color = 0</span>
+      </span>&nbsp;
+    <input class="shorter" type="number" id="nmbrFgH" title="Color" min="0" max="360" value="0">&deg;
+    </span>
+            
+            <span class="tr">
+            <label class="tdSmall" id="lblFgHex" for="valFgHex">Hex # </label>
+               <span class="td"><input type="text" class="short" id="valFgHex" value="FFFFFF" tabindex="0">
+               <button type="button" id="setFgHex" class="tooltip">&larr;Set
+                  <span class="tooltiptext">Set color to value entered in Hex box (3 or 6 characters)</span></button>
+               <button id="FgBgSwap" type="button"  class="tooltip">Bkg&harr;Txt
+                   <span class="tooltiptext">Swap background and text colors</span></button>
+                 <!--<button type="button" onclick="resetForm();" class="tooltip lvno">Blk & Wht
+                     <span class="tooltiptext">Black text on white background </span></button>-->
+                   </span></span>
+          
+          </fieldset>
+          
+          <!-- ********** COLOR (extreme low vision) ********* -->
+          
+          <fieldset class="inlnBlk centerTxt" id="elvColorFldset"><legend>Color</legend>
+            
+            <span class="tr"><span class="td text" id="elvColors">
+    
+        <span id="elvTxtBig">Big</span><br>
+        <span id="elvTxtSmall">Small</span>
+    
+        </span></span>
+            
+            <span class="tr"><span class="td tooltip" tabindex="0">
+        <label for="elvLumRatio"></label>
+        <input type="text" class="tiny" id="elvLumRatio" value="21.0" style="background-color: #B8FFB8;" readonly tabindex="-1" aria-label="eval luminosity ratio">:1
+                    <span id="elvLumRatioTip" class="tooltiptext">Contrast: good for all text</span>
+    </span></span>
+          </fieldset>
+          
+          <!-- ********** COLOR (normal) ********* -->
+          
+          <fieldset class="inlnBlk centerTxt" id="colorFldset"><legend>Color</legend>
+            
+            <span class="tr"><span class="td" id="colors">
+    
+        <span id="txtBig">Big text</span><br>
+        <span id="txtSmall">Really small text</span>
+    
+        </span></span>
+            <span class="tr"><span class="td tooltip" tabindex="0"><label for="lumRatio">Contrast:</label>
+        <input type="text" class="tiny" id="lumRatio" value="21.0" style="background-color: #B8FFB8;" readonly tabindex="-1">:1
+                <span id="lumRatioTip" class="tooltiptext">Good for all text</span>
+    </span></span>
+            <!--<span class="tr"></span>-->
+          
+          </fieldset>
+        
+        </fieldset>
+      </form>
+      <footer>
+        <p id="tt">&nbsp&nbsp;<label for="ttBtn" id="ttLbl">Tooltips: <span id="ttStatus" style="color:green;">ON&nbsp;&nbsp;</span></label>
+          <button id="ttBtn" class="tooltip" value="off">
+            Turn <span id="ttAction">OFF</span>
+            <span class="tooltiptext">Controls tooltips</span></button>&nbsp;
+          <span class="lightTan">&mdash;</span>&nbsp;
+          
+          <button id="helpBtn" class="tooltip" style="color: red;">?
+            <span class="tooltiptext" style="width: 60px; margin-left: -30px;">Help</span></button>
+          <button id="reset" type="button" class="tooltip">Reset
+            <span class="tooltiptext">Go back to starting colors</span></button>
+          <button id="doneBtn" type="button" class="tooltip">Done
+            <span id="doneBtnTip" class="tooltiptext">Accept size changes and return to main menu</span></button>
+        </p>
+      </footer>
+      <br>
+      <!-- RGB "inputs" to hold computed values (used to compute contrast) -->
+      
+      <input type="hidden" id="nmbrBgR" value = "255" readonly>
+      
+      <input type="hidden" id="nmbrBgG" value = "255" readonly>
+      
+      <input type="hidden" id="nmbrBgB" value = "255" readonly>
+      
+      <input type="hidden" id="nmbrFgR" value = "0" readonly>
+      
+      <input type="hidden" id="nmbrFgG" value = "0" readonly>
+      
+      <input type="hidden" id="nmbrFgB" value = "0" readonly>
+    
+    
+    </article>
+  </div>
+  <div class="grid-item">
+    <article id="sizesAll" tabindex="0">
+      <form name ="sizesForm" id="sizesForm">
+        <fieldset class="main">
+          
+          <div class="slider-wrapper sliderSpan tooltip" id="valFontSpan" style="float:left;">
+            <!-- Warning Strict Order Dependencies
+                 follow between the <input> and
+                 <output> elements. Follow all instructions
+            -->
+            <input type="range" id="valFont" class="vert" tabindex="1"
+                   name="valFont"
+                   min="0.8"
+                   max="1.2"
+                   value="1"
+                   step="0.01">
+            <!-- Warning!! No other content can come
+                 between these elements
+            -->
+            <output name="valFontOut" id="valFontOut">1</output>
+          </div>
+          
+          <label for="valFont">&larr;Font size</label> <span class="lightTan">&mdash;</span> <label for="valLtrSp">Letter&rarr;</label>
+          
+          <span class="sliderSpan tooltip horiz" id="valLtrSpSpan">
+            <input type="range" id="valLtrSp" tabindex="3"
+                   name="valLtrSp"
+                   min="0"
+                   max="0.12"
+                   value="0"
+                   step="0.01">
+            <!-- Warning!! No other content can come
+                 between these elements
+            -->
+          <output name="valLtrSpOut" id="valLtrSpOut">0</output>
+        </span>
+          <br>
+          <div class="slider-wrapper sliderSpan tooltip" id="valLineSpan" style="float:left;">
+            <input type="range" id="valLine" class="vert" tabindex="2"
+                   name="valLine"
+                   min="1"
+                   max="1.5"
+                   value="1"
+                   step="0.1">
+            <!-- Warning!! No other content can come
+                 between these elements
+            -->
+            <output name="valLineOut" id="valLineOut">1</output>
+          </div>
+          
+          <label for="valLine">&larr;Line</label> <span class="lightTan">&mdash;</span> <label for="valWord">Word&rarr;</label>
+          
+          <span class="sliderSpan tooltip horiz" id="valWordSpan">
+            <input type="range" id="valWord" tabindex="4"
+                   name="valWord"
+                   min="0"
+                   max="0.16"
+                   value="0"
+                   step="0.01">
+            <!-- Warning!! No other content can come
+                 between these elements
+            -->
+          <output name="valWordOut" id="valWordOut">0</output>
+        </span>
+          <br>
+          <div id="textBox" class="text">
+            Adjust font size, letter, word, and line space for easiest reading.
+          </div>
+        
+        </fieldset>
+      </form>
+      <footer>
+        <p id="sizeTt">&nbsp;<label for="sizeTtBtn" id="sizeTtLbl">Tooltips: <span id="sizeTtStatus" style="color:green;">ON&nbsp;&nbsp;</span></label>
+          <button id="sizeTtBtn" class="tooltip" value="off" >
+            Turn <span id="sizeTtAction">OFF</span>
+            <span class="tooltiptext">Control tooltips</span></button>
+          <span class="lightTan">&mdash;</span>&nbsp;
+          
+          <button id="sizeHelpBtn" type="button" class="tooltip" style="color: red;">?
+            <span class="tooltiptext" style="width: 60px; margin-left: -30px;">Help</span></button>
+          <button id="sizeReset" type="button" class="tooltip">Reset
+            <span class="tooltiptext">Go back to starting sizes</span></button>
+          <button id="sizeDoneBtn" type="button" class="tooltip">Done
+            <span id="sizeDoneBtnTip" class="tooltiptext">Accept size changes and return to main menu</span></button>
+        </p>
+      </footer>
+    
+    </article>
+  </div>
+</div>
+</body>
+<script src="js/util.js"></script>
+<script src="js/style.js"></script>
+<script src="js/font.js"></script>
+<script src="js/color.js"></script>
+<script src="js/size.js"></script>
+<script src="js/control.js"></script>
+<script src="js/fontFooter.js"></script>
+</html>

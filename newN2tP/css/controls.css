@@ -1,0 +1,379 @@
+body {
+    font-family: "PT Sans", Arial, sans-serif;
+}
+
+.inlnBlk {
+  display: inline-block;
+}
+
+fieldset {
+  background-color: white;
+  width: auto;
+  position: static;
+}
+fieldset.main {
+  background-color: #FFF5E5;
+}
+fieldset.long {
+    float: left;
+}
+#elvColorFldset {
+    display: none;
+}
+a.nav {
+    color: black;
+    background-color: #ffb;
+    text-decoration: none;
+    padding: .1em .3em;
+    border: 1px solid #633E0D;
+}
+
+p#sizeTt {
+    font-family: Arial, sans-serif;
+    font-size: .8em;
+    margin-top: .5em;
+    color: #633E0D;
+}
+#sizeTtLbl {
+    font-size: 1em;
+    /* in reference to the containing paragraph */
+}
+legend {
+    font-family: Arial, sans-serif;
+    color: #633E0D;
+}
+
+label, #lumRatioTip, #elvLumRatioTip, #ttBgH, #ttBgS, #ttFgH, #ttFgS  {
+    font-family: Arial, sans-serif;
+    font-size: .75em;
+}
+
+.tooltipright, .tooltipunder {
+    font-size: .75em;
+}
+#colors {
+  font-family: Arial, sans-serif;
+  padding: 1em;
+  border: 1px solid #888;
+}
+#elvColors {
+    font-family: Arial, sans-serif;
+    padding: .5em .25em;
+    border: 1px solid #888;
+}
+#txtBig, #elvTxtBig {
+    font-size: 2em;
+    padding: 1px;
+    border: 1px solid transparent;
+}
+#txtSmall, #elvTxtSmall {
+    font-size: .70em;
+    padding: 1px;
+    border: 1px solid transparent;
+}
+.centerTxt {
+    text-align: center;
+}
+.tr {
+  display: table-row;
+}
+.td {
+  display: table-cell;
+}
+.tdSmall {
+  display: table-cell;
+}
+span.tdSmall {
+    border: 2px solid #fff;
+}
+.lightTan {
+    color: #CCB89E;
+}
+button {
+  background-color: #FFF5E5;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #EBEBEB #545454 #545454 #EBEBEB;
+}
+#sizeDoneBtn {
+    background-color: #EBFFF5;
+    color: darkgreen;
+}
+button:focus, button:hover {
+    background-color: #633E0D;
+    color: #fff5e5;
+}
+#sizeDoneBtn:focus, #sizeDoneBtn:hover {
+    background-color: darkgreen;
+    color: #EBFFF5;
+}
+.short {
+  width: 4em;
+}
+.shorter {
+  width: 3em;
+}
+.tiny {
+  width: 2em;
+}
+input {
+  font-size: 1em;
+}
+input[type=range]  {
+    background: none;
+    width: 13em;
+}
+input[type=range] {
+    border: none;
+}
+input[type=number] {
+    border: 2px solid #eee;
+}
+input[type=number]:hover, input[type=number]:focus {
+    border: 2px solid #633E0D;
+}
+input[type=text]:hover, input[type=text]:focus {
+    border: 2px solid #633E0D;
+}
+input#lumRatio {
+    border: none;
+}
+input#elvLumRatio, input#elvLumRatio:hover {
+    border: none;
+}
+#lumRatio, #elvLumRatio {
+    margin-top: .25em;
+}
+#elvLumRatioTip {
+    width: 6em;
+}
+#valBgHSpan, #valFgHSpan {
+    background: linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet);
+}
+#valBgSSpan, #valFgSSpan {
+    background: linear-gradient(to right, rgba(255,255,255,0), rgba(0,0,0,1));
+}
+#valBgLSpan, #valFgLSpan {
+    background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(255, 255, 255, 0));
+}
+
+#txtControls {
+    display: none;
+}
+#textBox {
+    margin-top: 5px;
+    font-size: 1em;
+    letter-spacing: 0;
+    word-spacing: 0;
+    line-height: 1em;
+    height: 80px;
+}
+footer {
+    z-index: 2;
+}
+output {
+    background-color: #996014;
+    color: #FFF5E5;
+    z-index: 1;
+    padding: 0 5px;
+    position: absolute;
+    top: 2%;
+    left: 100%;
+    visibility: hidden;
+}
+
+@media only screen and (max-width: 600px) {
+    input[type=range] {
+        width: 8em;
+    }
+    button.lvno {
+        display: none;
+    }
+    #colors {
+        padding: .5em;
+    }
+    fieldset {
+        padding: .1em;
+        margin: 0;
+    }
+}
+@media only screen and (max-width: 400px) {
+    input[type=range] {
+        width: 6em;
+    }
+    .main {
+        margin: 0;
+        padding: 0;
+    }
+    body {
+        margin-top: 0;
+        padding-left: 0;
+        margin-left: 0;
+        padding-right: 0;
+        margin-right: 0;
+        margin-bottom: 0;
+    }
+
+}
+@media only screen and (max-width: 350px) {
+    #elvColorFldset {
+        display: inline-block;
+    }
+    #colorFldset {
+        display: none;
+    }
+    p#sizeTt {
+        margin-top: .2em;
+        margin-bottom: 0;
+    }
+    #sizeDoneBtnTip {
+        width: 80px;
+        margin-left: -50px;
+    }
+}
+
+/* vertical slider */
+.slider-wrapper {
+    display: inline-block;
+    width: 20px;
+    height: 124px;
+    padding: 0;
+    margin-right: 2px;
+    background-color: white;
+    border: 2px solid #eee;
+}
+.slider-wrapper input.vert {
+    position: relative;
+    right: 2px;
+    width: 124px;
+    height: 20px;
+    transform-origin: 62px 62px;
+    transform: rotate(-90deg);
+}
+@-moz-document url-prefix() {
+    .slider-wrapper input.vert {
+        position: relative;
+        right: 11px;
+    }
+}
+#valLineSpan {
+    height: 100px;
+    margin-bottom: 2px;
+}
+#valLine {
+    width: 100px;
+    transform-origin: 50px 50px;
+}
+
+#valLtrSpSpan, #valWordSpan {
+    background-color: white;
+    border: 2px solid #eee;
+}
+#valWordSpan {
+    margin-left: 2px;
+}
+
+/* Tooltip container */
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #ebfff5;
+    color: darkgreen;
+    border: 1px solid darkgreen;
+    border-radius: 5px;
+    text-align: center;
+    padding: 5px 0;
+
+    /* Position the tooltip text */
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+
+    /* Fade in tooltip */
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+.tooltip .tooltipright {
+    visibility: hidden;
+    width: 50px;
+    background-color: #ebfff5;
+    color: darkgreen;
+    border: 1px solid darkgreen;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px 0;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    top: 10%;
+    left: 110%;
+}
+
+.tooltip:hover .tooltipright {
+    visibility: visible;
+}
+
+.tooltip .tooltipunder {
+    visibility: hidden;
+    width: 60px;
+    background-color: #ebfff5;
+    color: darkgreen;
+    border: 1px solid darkgreen;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px 0;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+    left: 50%;
+    margin-left: -30px;
+}
+
+.tooltip:hover .tooltipunder {
+    visibility: visible;
+}
+/**/
+#valLtrSpTT {
+    margin-left: -10px;
+}
+#valWordTT {
+    margin-left: -10px;
+}
+
+/* Tooltip arrow */
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: green transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+.tooltip:focus .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* add this class to tooltip text to prevent it from being displayed (TJ) */
+
+.noshow {
+    display: none;
+}

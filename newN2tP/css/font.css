@@ -1,0 +1,70 @@
+#appmenu {
+  width:auto;
+  float: left;
+  margin: 0 0 .35em 0;
+  color: #202020;
+  background-color: #963;
+  padding: .25em;
+}
+#appmenu li {
+  white-space: nowrap;
+  display:block;
+  padding: .25em;
+  border: 1px solid #202020;
+  height: 1.4em;
+  vertical-align: center;
+  text-align: center;
+}
+#appmenu > li {
+  float: left;
+  background-color: #FFF5E5;
+  text-align: center;
+  position:relative;
+  cursor: pointer;
+}
+#appmenu :hover,
+#appmenu :focus {
+  background-color: #E1DDD7;
+  color: #741;
+  border: 1px solid #963;
+  text-decoration: underline;
+}
+
+#appmenu :hover li,
+#appmenu :focus li {
+  color: #741;
+  background-color: #E1DDD7;
+}
+
+#appmenu > li > ul {
+  display: none;
+  position:absolute;
+  left:0;
+  right:0;
+  top:100%;
+  padding:0;
+  margin:0;
+  background-color: #963;
+  width: 9em;
+  text-align: left;
+}
+
+#appmenu > li[aria-expanded="true"] > ul {
+  display:block;
+}
+h1 {
+  font-size: 18px;
+  margin: 0 0 .35em 0;
+  padding: 0;
+  clear: both;
+}
+/*p {
+  font-size: 16px;
+  width: auto;
+  clear: both;
+  padding: 0;
+  margin: 0;
+}
+body {
+  background-color: #e1dDd7;
+}*/

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Size Selector for N2tP</title>
+<link rel="stylesheet" type="text/css" href="css/controls.css" />
+
+</head>
+
+<!-- *********** PAGE BEGINS HERE ************* -->
+
+<body>
+
+<form name ="sizesForm" id="sizesForm">
+<fieldset class="main">
+
+    <div class="slider-wrapper sliderSpan tooltip" id="valFontSpan" style="float:left;">
+      <!-- Warning Strict Order Dependencies
+           follow between the <input> and
+           <output> elements. Follow all instructions
+      -->
+        <input type="range" id="valFont" class="vert" tabindex="1"
+               name="valFont"
+               min="0.8"
+               max="1.2"
+               value="1"
+               step="0.01">
+        <!-- Warning!! No other content can come
+             between these elements
+        -->
+        <output name="valFontOut" id="valFontOut">1</output>
+    </div>
+
+    <label for="valFont">&larr;Font size</label> <span class="lightTan">&mdash;</span> <label for="valLtrSp">Letter&rarr;</label>
+
+    <span class="sliderSpan tooltip horiz" id="valLtrSpSpan">
+        <input type="range" id="valLtrSp" tabindex="3"
+               name="valLtrSp"
+               min="0"
+               max="0.12"
+               value="0"
+               step="0.01">
+      <!-- Warning!! No other content can come
+					 between these elements
+			-->
+      <output name="valLtrSpOut" id="valLtrSpOut">0</output>
+    </span>
+    <br>
+    <div class="slider-wrapper sliderSpan tooltip" id="valLineSpan" style="float:left;">
+        <input type="range" id="valLine" class="vert" tabindex="2"
+               name="valLine"
+               min="1"
+               max="1.5"
+               value="1"
+               step="0.1">
+      <!-- Warning!! No other content can come
+					 between these elements
+			-->
+      <output name="valLineOut" id="valLineOut">1</output>
+    </div>
+
+    <label for="valLine">&larr;Line</label> <span class="lightTan">&mdash;</span> <label for="valWord">Word&rarr;</label>
+
+    <span class="sliderSpan tooltip horiz" id="valWordSpan">
+        <input type="range" id="valWord" tabindex="4"
+               name="valWord"
+               min="0"
+               max="0.16"
+               value="0"
+               step="0.01">
+      <!-- Warning!! No other content can come
+					 between these elements
+			-->
+      <output name="valWordOut" id="valWordOut">0</output>
+    </span>
+    <br>
+    <div id="textBox">
+        Adjust font size, letter, word, and line space for easiest reading.
+    </div>
+
+</fieldset>
+</form>
+<footer>
+    <p id="sizeTt">&nbsp;<label for="sizeTtBtn" id="sizeTtLbl">Tooltips: <span id="sizeTtStatus" style="color:green;">ON&nbsp;&nbsp;</span></label>
+    <button id="sizeTtBtn" class="tooltip" value="off" >
+        Turn <span id="sizeTtAction">OFF</span>
+        <span class="tooltiptext">Control tooltips</span></button>
+        <span class="lightTan">&mdash;</span>&nbsp;
+
+        <button id="sizeHelpBtn" type="button" class="tooltip" style="color: red;">?
+            <span class="tooltiptext" style="width: 60px; margin-left: -30px;">Help</span></button>
+    <button id="sizeReset" type="button" class="tooltip">Reset
+        <span class="tooltiptext">Go back to starting sizes</span></button>
+    <button id="sizeDoneBtn" type="button" class="tooltip">Done
+        <span id="sizeDoneBtnTip" class="tooltiptext">Accept size changes and return to main menu</span></button>
+</p>
+</footer>
+
+</body>
+<script src="js/size.js">
+</script>
+</html>

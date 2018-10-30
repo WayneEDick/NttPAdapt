@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Font Menu</title>
+	<link rel="stylesheet" type="text/css" href="css/font.css">
+</head>
+<body>
+<ul role="menubar" aria-label="functions" id="appmenu">
+	<li role="menuitem" aria-haspopup="true" style="font-family: sans-serif;">
+		Sans Serif
+		<ul role="menu" >
+			<li role="menuitem" class="fontDisplay" style="font-size: 16px; font-family: Arial, Helvetica, sans-serif;">Arial
+			</li>
+			<li role="menuitem" class="fontDisplay" style="font-size: 16px; font-family: 'Comic Sans MS', cursive, sans-serif;">Comic Sans
+			</li>
+			<li role="menuitem" class="fontDisplay" style="font-size: 16px; font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif;">Lucida Sans
+			</li>
+			<li role="menuitem" class="fontDisplay" style="font-size: 16px; font-family:Tahoma, sans-serif;">Tahoma
+			</li>
+			<li role="menuitem" class="fontDisplay" style="font-size: 16px; font-family:'Trebuchet MS', 'Lucida Grande', sans-serif;">Trebuchet
+			</li>
+			<li role="menuitem" class="fontDisplay" style="font-size: 16px; font-family:'Verdana', sans-serif;">Verdana
+			</li>
+		</ul>
+	</li>
+	<li role="menuitem" aria-haspopup="true" style="font-family: serif;">
+		Serif
+		<ul role="Menu">
+			<li role="menuitem" class="fontDisplay" style="font-size: 16px; font-family:Georgia, serif;">Georgia
+			</li>
+			<li role="menuitem" class="fontDisplay" style="font-size: 16px; font-family:'Palatino Linotype', 'Book Antiqua', Palatino, serif;">Palatino</li>
+			<li role="menuitem" class="fontDisplay" style="font-size: 16px; font-family:Times, 'Times New Roman',serif;">Times </li>
+		</ul>
+	</li>
+	<li role="menuitem" aria-haspopup="true" style="font-family: monospace; font-size: 16px;">
+		Monospace
+		<ul role="menu">
+			<li role="menuitem" class="fontDisplay" style="font-size: 16px; font-family: Courier, monospace;">Courier
+			</li>
+			<li role="menuitem" class="fontDisplay" style="font-size: 16px; font-family: 'Courier New', monospace;">Courier New
+			</li>
+			<li role="menuitem" class="fontDisplay" style="font-size: 16px; font-family: 'Lucida Console', Monaco, monospace;">Lucida Console
+			</li>
+		</ul>
+	</li>
+	<li role="menuitem" id="OK">OK</li>
+	<li role="menuitem" id="Help">Help</li>
+</ul>
+<div id="ctlSample" class="sample"><h1 class="text ">Pick a font from the menu. </h1>
+<p class="text">Try many to find one you like. Note: Each letter should be easy to identify &mdash; Il1 5S 0O.</p></div>
+
+</body>
+<script src="js/util.js"></script>
+<script src="js/style.js"></script>
+<script src="js/font.js"></script>
+</html>

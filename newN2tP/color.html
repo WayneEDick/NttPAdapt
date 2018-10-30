@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+  <title>HSL Color Selector</title>
+  
+  <link rel="stylesheet" type="text/css" href="css/controls.css" />
+
+</head>
+
+<!-- *********** PAGE BEGINS HERE ************* -->
+
+<body>
+
+<form id="colorForm">
+  <fieldset class="main">
+    
+    <!-- *********** BACKGROUND  *****************-->
+    
+    <fieldset class="inlnBlk long" id="bgControls"><legend>Background &ndash;
+      <button type="button" id="chgToTxt">Show Text Controls</button></legend>
+      
+      <span class="tr">
+<label class="tdSmall" id="lblBgL" for="valBgL">Light</label>
+<span class="tdSmall sliderSpan" id="valBgLSpan" style="display: inline-block;">
+<input type="range"
+       id="valBgL"
+       name="valBgL"
+       min="0"
+       max="100"
+       value="100"
+       step="1">
+  </span>&nbsp;
+<input class="shorter" type="number" id="nmbrBgL" title="Light" min="0" max="100" value="100" >%
+</span>
+      
+      <span class="tr">
+            <label class="tdSmall" id="lblBgS" for="valBgS" title="Saturation">%color&nbsp;</label>
+<span class="tdSmall sliderSpan tooltip" id="valBgSSpan" style="display: inline-block;">
+<input type="range"
+       id="valBgS"
+       name="valBgS"
+       min="0"
+       max="100"
+       value="0"
+       step="1">
+    <span id="ttBgS" class="tooltiptext noshow">Meaningless with Light = 0 or 100</span>
+  </span>&nbsp;
+<input class="shorter" type="number" id="nmbrBgS" title="Percent Color" min="0" max="100" value="0">%
+</span>
+      
+      <span class="tr">
+<label class="tdSmall" id="lblBgH" for="valBgH" title="Hue">Color</label>
+<span class="tdSmall sliderSpan tooltip" id="valBgHSpan" style="display: inline-block;">
+<input type="range"
+       id="valBgH"
+       class="tooltip"
+       name="valBgH"
+       min="0"
+       max="360"
+       value="0"
+       step="1">
+    <span id="ttBgH" class="tooltiptext noshow">Meaningless with %color = 0</span>
+  </span>&nbsp;
+<input class="shorter" type="number" id="nmbrBgH" title="Color" min="0" max="360" value="0" >&deg;
+</span>
+      
+      <span class="tr">
+        <label class="tdSmall" id="lblBgHex" for="valBgHex">Hex # </label>
+           <span class="td"><input type="text" class="short" id="valBgHex" value="FFFFFF" tabindex="0">
+           <button type="button" id="setBgHex"  class="tooltip">&larr;Set
+              <span class="tooltiptext">Set color to value entered in Hex box (3 or 6 characters)</span></button>
+           <button id="BgFgSwap" type="button"  class="tooltip">Bkg&harr;Txt
+               <span class="tooltiptext">Swap background and text colors</span></button>
+             <!--<button type="button" onclick="resetForm();" class="tooltip lvno">Blk & Wht
+								 <span class="tooltiptext">Black text on white background </span></button>-->
+               </span></span>
+    
+    </fieldset>
+    
+    
+    <!-- *************** TEXT  ********* -->
+    
+    <fieldset class="inlnBlk long" id="txtControls"><legend>Text &ndash;
+      <button type="button" id="chgToBg">Show Background Controls</button></legend>
+      
+      <span class="tr">
+<label class="tdSmall" id="lblFgL" for="valFgL">Light</label>
+<span class="tdSmall sliderSpan" id="valFgLSpan" style="display: inline-block;">
+<input type="range"
+       id="valFgL"
+       name="valFgL"
+       min="0"
+       max="100"
+       value="0"
+       step="1">
+  </span>&nbsp;
+<input class="shorter" type="number" id="nmbrFgL" title="Light" min="0" max="100" value="0" >%
+</span>
+      
+      <span class="tr">
+<label class="tdSmall" id="lblFgS" for="valFgS" title="Saturation">%color&nbsp;</label>
+<span class="tdSmall sliderSpan tooltip" id="valFgSSpan" style="display: inline-block;">
+<input type="range"
+       id="valFgS"
+       name="valFgS"
+       min="0"
+       max="100"
+       value="0"
+       step="1">
+    <span id="ttFgS" class="tooltiptext noshow">Meaningless with Light = 0 or 100</span>
+  </span>&nbsp;
+<input class="shorter" type="number" id="nmbrFgS" title="Percent Color" min="0" max="100" value="0">%
+</span>
+      
+      
+      <span class="tr">
+<label class="tdSmall" id="lblFgH" for="valFgH" title="Hue">Color</label>
+<span class="tdSmall sliderSpan tooltip" id="valFgHSpan" style="display: inline-block;">
+<input type="range"
+       id="valFgH"
+       name="valFgH"
+       min="0"
+       max="360"
+       value="0"
+       step="1">
+    <span id="ttFgH" class="tooltiptext noshow">Meaningless with %color = 0</span>
+  </span>&nbsp;
+<input class="shorter" type="number" id="nmbrFgH" title="Color" min="0" max="360" value="0">&deg;
+</span>
+      
+      <span class="tr">
+        <label class="tdSmall" id="lblFgHex" for="valFgHex">Hex # </label>
+           <span class="td"><input type="text" class="short" id="valFgHex" value="FFFFFF" tabindex="0">
+           <button type="button" id="setFgHex" class="tooltip">&larr;Set
+              <span class="tooltiptext">Set color to value entered in Hex box (3 or 6 characters)</span></button>
+           <button id="FgBgSwap" type="button"  class="tooltip">Bkg&harr;Txt
+               <span class="tooltiptext">Swap background and text colors</span></button>
+             <!--<button type="button" onclick="resetForm();" class="tooltip lvno">Blk & Wht
+								 <span class="tooltiptext">Black text on white background </span></button>-->
+               </span></span>
+    
+    </fieldset>
+    
+    <!-- ********** COLOR (extreme low vision) ********* -->
+    
+    <fieldset class="inlnBlk centerTxt" id="elvColorFldset"><legend>Color</legend>
+      
+      <span class="tr"><span class="td" id="elvColors">
+
+    <span id="elvTxtBig">Big</span><br>
+    <span id="elvTxtSmall">Small</span>
+
+    </span></span>
+      
+      <span class="tr"><span class="td tooltip" tabindex="0">
+    <label for="elvLumRatio"></label>
+    <input type="text" class="tiny" id="elvLumRatio" value="21.0" style="background-color: #B8FFB8;" readonly tabindex="-1" aria-label="eval luminosity ratio">:1
+                <span id="elvLumRatioTip" class="tooltiptext">Contrast: good for all text</span>
+</span></span>
+    </fieldset>
+    
+    <!-- ********** COLOR (normal) ********* -->
+    
+    <fieldset class="inlnBlk centerTxt" id="colorFldset"><legend>Color</legend>
+      
+      <span class="tr"><span class="td" id="colors">
+
+    <span id="txtBig">Big text</span><br>
+    <span id="txtSmall">Really small text</span>
+
+    </span></span>
+      <span class="tr"><span class="td tooltip" tabindex="0"><label for="lumRatio">Contrast:</label>
+    <input type="text" class="tiny" id="lumRatio" value="21.0" style="background-color: #B8FFB8;" readonly tabindex="-1">:1
+            <span id="lumRatioTip" class="tooltiptext">Good for all text</span>
+</span></span>
+      <!--<span class="tr"></span>-->
+    
+    </fieldset>
+  
+  </fieldset>
+</form>
+<footer>
+  <p id="sizeTt">&nbsp&nbsp;<label for="ttBtn" id="sizeTtLbl">Tooltips: <span id="ttStatus" style="color:green;">ON&nbsp;&nbsp;</span></label>
+    <button id="ttBtn" class="tooltip" value="off">
+      Turn <span id="ttAction">OFF</span>
+      <span class="tooltiptext">Controls tooltips</span></button>&nbsp;
+    <span class="lightTan">&mdash;</span>&nbsp;
+    
+    <button id="helpBtn" class="tooltip" style="color: red;">?
+      <span class="tooltiptext" style="width: 60px; margin-left: -30px;">Help</span></button>
+    <button id="reset" type="button" class="tooltip">Reset
+      <span class="tooltiptext">Go back to starting colors</span></button>
+    <button id="sizeDoneBtn" type="button" class="tooltip">Done
+      <span id="sizeDoneBtnTip" class="tooltiptext">Accept size changes and return to main menu</span></button>
+  </p>
+</footer>
+<br>
+<!-- RGB "inputs" to hold computed values (used to compute contrast) -->
+
+<input type="hidden" id="nmbrBgR" value = "255" readonly>
+
+<input type="hidden" id="nmbrBgG" value = "255" readonly>
+
+<input type="hidden" id="nmbrBgB" value = "255" readonly>
+
+<input type="hidden" id="nmbrFgR" value = "0" readonly>
+
+<input type="hidden" id="nmbrFgG" value = "0" readonly>
+
+<input type="hidden" id="nmbrFgB" value = "0" readonly>
+
+
+
+
+
+</body>
+<script src="js/color.js"></script>
+</html>

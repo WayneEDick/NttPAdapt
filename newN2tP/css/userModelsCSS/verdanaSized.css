@@ -1,0 +1,5 @@
+html {font-size: 16px}
+body, body * {
+  font-size: 0.8525rem;
+  font-family: Verdana, sans-serif;
+}

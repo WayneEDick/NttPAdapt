@@ -1,0 +1,6 @@
+               onfocus = "hilite(this);"
+               onblur = "hiliteOff(this);"
+               onmouseover = "hilite(this);"
+               onmouseout = "hiliteOff(this);"
+               onchange = "updateSize(this);"
+               oninput = "valFontOut.value = valFont.value"
